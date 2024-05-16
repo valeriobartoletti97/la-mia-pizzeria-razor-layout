@@ -1,0 +1,93 @@
+﻿﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* SNACK 1 *@
+<div class="text-center mb-3">
+    <h3 class="text-uppercase text-danger">Snack 1</h3>
+
+    @{
+        string name = "Valerio";
+        string surname = "Bartoletti";
+        <h2>Ciao il mio nome è @name @surname</h2>
+    }
+</div>
+
+
+@* SNACK 2 *@
+<div class="text-center mb-3">
+    <h3 class="text-uppercase text-danger">Snack 2</h3>
+    @{
+        void PrintNumbers(int n)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                <span>@i</span>
+            }
+        }
+        PrintNumbers(5);
+    }
+</div>
+
+@* SNACK 3 *@
+<div class="text-center mb-3">
+    <h3 class="text-uppercase text-danger">Snack 3</h3>
+    @{
+        string myString = "nel mezzo del cammin di nostra vita";
+        int counter = 0;
+        foreach (var character in myString)
+        {
+            if (character.Equals('a'))
+            {
+                counter++;
+            }
+        }
+        <h2>Il numero di "A" nella frase dello snack 3 è uguale a: @counter</h2>
+    }
+</div>
+
+@* SNACK 4 *@
+<div class="text-center mb-3">
+    <h3 class="text-uppercase text-danger">Snack 4</h3>
+    @{
+        List<int> numbers = new List<int>();
+        Random r = new Random();
+        for (int i = 0; i < 20; i++)
+        {
+            int number = r.Next(1, 91);
+            numbers.Add(number);
+        }
+        foreach (var num in numbers)
+        {
+            if (num < 70 && num > 20)
+            {
+                <span>@num</span>
+            }
+        }
+    }
+</div>
+
+@* SNACK 5 *@
+<div class="text-center mb-3">
+    <h3 class="text-uppercase text-danger">Snack 6</h3>
+    @{
+        <h4>Ora e data attuali:</h4>
+        DateTime nowDate = DateTime.Now;
+        string date = nowDate.ToString("yyyy-MM-dd HH:mm:ss");
+        <h2>@date</h2>
+
+        <h4>Data di 7 giorni fa:</h4>
+
+        string dayAgo7 = nowDate.AddDays(-7).ToString("dd-MM-yyyy");
+        <h2>@dayAgo7</h2>
+
+        <h4>Giorno di oggi:</h4>
+        <h2>@DateTime.Now.ToString("dddd").ToUpper()</h2>
+
+        <h4>Giorno di oggi fra un anno:</h4>
+
+        DateTime aYearFromNow = nowDate.AddYears(1);
+        <h2>@aYearFromNow.ToString("dddd").ToUpper()</h2>
+        ;
+    }
+</div>

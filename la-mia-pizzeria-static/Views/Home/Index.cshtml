@@ -1,0 +1,42 @@
+﻿@{
+    Pizza pizza1 = PizzaManager.CreatePizza("Bufala", "Pomodoro, Mozzarella di Bufala", "bufala.jfif", 10);
+    Pizza pizza2 = PizzaManager.CreatePizza("Diavola", "Pomodoro, Mozzarella di Bufala, Salame", "diavola.jpg", 8);
+    Pizza pizza3 = PizzaManager.CreatePizza("Funghi", "Pomodoro, Funghi", "funghi.jfif", 8);
+    Pizza pizza4 = PizzaManager.CreatePizza("Zucchine", "Zucchine, Mozzarella", "zucchine.jfif", 9);
+    PizzaManager.AddPizza(pizza1);
+    PizzaManager.AddPizza(pizza2);
+    PizzaManager.AddPizza(pizza3);
+    PizzaManager.AddPizza(pizza4);
+}
+            <div class="text-center pt-5 pb-2">
+                <h2 class="text-uppercase fw-bold">Pizze</h2>
+            </div>
+            <div class="container my-bg pb-3" id="main-content">
+                <div class="row justify-content-between ">
+                    @{
+                        foreach (Pizza pizza in PizzaManager.ListPizza)
+                        {
+                            <div class="col-5 d-flex my-card position-relative mt-2">
+                             
+                                    <div class="img-box py-2">
+                                        <img src="~/img/@pizza.Image" alt="pizza.Name" class="pizza-img" />
+                                    </div>
+                                    <div class="pizza-description px-3 pt-2">
+                                        <h3>@pizza.Name</h3>
+                                        <p class="overflow-hidden pizza-title">@pizza.Description</p>
+                                    </div>
+                                    <div class="pizza-price position-absolute">
+                                        <div class="d-flex align-items-center">
+                                            <span class="fs-4 me-2 d-block ">
+                                                @pizza.Price&euro;
+                                            </span>
+                                            <span class="d-block">
+                                                <i class="fa-solid fa-cart-shopping shop-icon"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
